@@ -1,14 +1,16 @@
 ---
-- name: Update Localhost
+- name: Create New Directory Locally
   hosts: localhost
   connection: local
   become: yes
 
   tasks:
-    - name: Update the system using dnf
-      command: dnf update -y
-      register: dnf_output
+    - name: Create new directory
+      file:
+        path: "{{ lookup('env', 'PWD') }}/tesdir"
+        state: directory
 
-    - name: Display dnf update output
+    - name: Display new directory creation status
       debug:
-        var: dnf_output
+        msg: "Directory 'newdir' created successfully."
+
