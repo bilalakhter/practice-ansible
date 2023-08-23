@@ -7,10 +7,10 @@
   tasks:
     - name: Create new directory
       file:
-        path: "{{ lookup('env', 'PWD') }}/tesdir"
+        path: "{{ lookup('env', 'PWD') }}/tetesosdir"
         state: directory
 
     - name: Display new directory creation status
       debug:
-        msg: "Directory 'newdir' created successfully."
+        msg: "Directory 'testdir' created successfully."
 
