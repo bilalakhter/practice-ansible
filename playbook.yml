@@ -1,0 +1,14 @@
+---
+- name: Update Localhost
+  hosts: localhost
+  connection: local
+  become: yes
+
+  tasks:
+    - name: Update the system using dnf
+      command: dnf update -y
+      register: dnf_output
+
+    - name: Display dnf update output
+      debug:
+        var: dnf_output
